@@ -1,0 +1,9 @@
+# Используем за основу контейнера Ubuntu 16.04 LTS последнюю версию Ubuntu
+FROM ubuntu
+# Переключаем Ubuntu в неинтерактивный режим — чтобы избежать лишних запросов
+ENV DEBIAN_FRONTEND noninteractive 
+# Устанавливаем локаль
+RUN locale-gen ru_RU.UTF-8 && dpkg-reconfigure locales 
+# Обновляем и устанавливаем пакеты
+RUN apt-get update -y
+RUN apt-get install -y curl git
